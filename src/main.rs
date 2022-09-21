@@ -9,10 +9,17 @@ Find the product abc. */
 fn main() {
     let limit: i32 = 1000;
 
-    for a in 1..limit + 1 {
+    'outer: for a in 1..limit + 1 {
         for b in 1..limit + 1 {
             for c in 1..limit + 1 {
-                println!("{} * {} * {} = {}", a, b, c, a * b * c);
+                let is_triple: bool = (a * a) + (b * b) == (c * c);
+
+                if is_triple {
+                    if a + b + c == limit {
+                        println!("{} * {} * {} = {}", a, b, c, a * b * c);
+                        break 'outer;
+                    }
+                }
             }
         }
     }
