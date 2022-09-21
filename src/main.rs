@@ -7,5 +7,13 @@ There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 Find the product abc. */
 
 fn main() {
-    println!("Hello, world!");
+    let limit: i32 = 1000;
+
+    for a in 1..limit + 1 {
+        for b in 1..limit + 1 {
+            for c in 1..limit + 1 {
+                println!("{} * {} * {} = {}", a, b, c, a * b * c);
+            }
+        }
+    }
 }
